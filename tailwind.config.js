@@ -19,6 +19,19 @@ export default {
           "sans-serif",
         ],
       },
+      colors: {
+        // Main colors app
+        primary: "#990000",
+        "primary-dark": "#4F0000",
+
+        // Health module colors
+        "health-primary": "#00BCFF",
+        "health-primary-dark": "#0078B4",
+        "health-medicine-primary": "#10B981",
+        "health-medicine-dark": "#0D9488",
+        "health-psychology-primary": "#EFB100",
+        "health-psychology-dark": "#B38400",
+      },
     },
   },
   darkMode: "class",
