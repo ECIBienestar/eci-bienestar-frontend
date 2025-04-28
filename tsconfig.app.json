@@ -20,7 +20,14 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+
+    /* Base URL y Paths */
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["*"],
+      "@appointment-management/*": ["modules/appointment-management/*"]
+    }
   },
   "include": ["src"]
 }
