@@ -21,8 +21,7 @@ export default {
       },
       colors: {
         // Main colors app
-        primary: "#990000",
-        "primary-dark": "#4F0000",
+        "app-primary": "#990000",
 
         // Health module colors
         "health-primary": "#00BCFF",
