@@ -49,7 +49,7 @@ const GestionPanel = () => {
         <Tabs aria-label="Options" fullWidth>
           <Tab key="speciality" title="Especialidad">
             <Card>
-              <CardHeader className="flex flex-col items-start gap-2">
+              <CardHeader className="flex flex-col items-start gap-2 px-5">
                 <p className="text-l">
                   Gestion de disponibilidad por especialidad
                 </p>
@@ -69,7 +69,7 @@ const GestionPanel = () => {
                         key={speciality.key}
                         className="w-full flex justify-between items-center"
                       >
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-2 px-2">
                           {isAvailable ? (
                             <FontAwesomeIcon
                               icon={faCheckCircle}
@@ -84,18 +84,21 @@ const GestionPanel = () => {
                           <span>{speciality.label}</span>
                         </div>
 
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-2 px-2">
                           <span className="text-sm text-gray-500">
                             {isAvailable ? "Disponible" : "No disponible"}
                           </span>
                           <Switch
-                            color="danger"
                             isSelected={isAvailable}
                             aria-label={speciality.label}
                             checked={availability[speciality.key]}
                             onChange={() => handleToggle(speciality.key)}
                             isDisabled={!availabilityShifts}
-                          />
+                            classNames={{
+                                wrapper: isAvailable ? "bg-health-primary" : "bg-gray-300",
+                            }}
+                            color=""
+                            />
                         </div>
                       </div>
                     );
@@ -119,7 +122,7 @@ const GestionPanel = () => {
                 {availabilityShifts ? (
                   <Alert
                     color="success"
-                    className="w-full my-5"
+                    className="w-full my-2"
                     title="Turnos habilitados"
                     description="Todos los turnos estan habilitados. Puede gestionar la disponibilidad de cada especialidad."
                   />
