@@ -5,7 +5,6 @@ import {
   Form as FormHero,
   Tab,
   Tabs,
-  Alert,
   CheckboxGroup,
   Checkbox,
   Input,
@@ -15,10 +14,35 @@ import {
 } from "@heroui/react";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUpload } from "@fortawesome/free-solid-svg-icons";
+import { faUpload, faFloppyDisk } from "@fortawesome/free-solid-svg-icons";
+import MultimediaItem from "./multimediaItem";
+
+const items = [
+  { id: 1, name: "Elemento 1" },
+  { id: 2, name: "Elemento 2" },
+];
 
 const GestionMultimediaPanel = () => {
   const [selectedDuration, setSelectedDuration] = useState("8");
+  const [list, setList] = useState(items);
+  const [pendingDelete, setPendingDelete] = useState<Set<number>>(new Set());
+
+  interface Item {
+    id: number;
+    name: string;
+  }
+
+  // Marcar un ítem para eliminar
+  const handleDelete = (id: string | number): void => {
+    const numericId = typeof id === "string" ? parseInt(id, 10) : id;
+    setPendingDelete((prev) => new Set(prev.add(numericId)));
+  };
+
+  // Eliminar permanentemente los ítems marcados
+  const handleSaveChanges = () => {
+    setList((prev) => prev.filter((item) => !pendingDelete.has(item.id)));
+    setPendingDelete(new Set()); // Limpiar el estado de eliminación temporal
+  };
 
   return (
     <Card className="p-5">
@@ -98,10 +122,25 @@ const GestionMultimediaPanel = () => {
 
         <Tab key="deleteMedia" title="Eliminar">
           <Card>
-            <CardBody className="flex flex-col gap-4">
-              <FormHero className="flex flex-col gap-8">
-                
-              </FormHero>
+            <CardBody>
+              {list.map((item) => (
+                <MultimediaItem
+                  key={item.id}
+                  id={item.id}
+                  title={item.name}
+                  type="Imagen"
+                  duration={8}
+                  onDelete={handleDelete}
+                  isPendingDelete={pendingDelete.has(item.id)} // Añadir prop para mostrar oculto
+                />
+              ))}
+              <Button
+                className="w-full my-2 bg-health-primary text-white"
+                type="button"
+                onClick={handleSaveChanges}
+              >
+                <FontAwesomeIcon icon={faFloppyDisk} /> Guardar cambios
+              </Button>
             </CardBody>
           </Card>
         </Tab>
