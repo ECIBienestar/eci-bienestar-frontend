@@ -1,20 +1,21 @@
 import './App.css'
-import Card from "./modules/appointment-management/components/confirmation/Card/Card.tsx";
-import Form from "./modules/appointment-management/components/request/Form.tsx";
-import GestionPanel from "./modules/appointment-management/components/gestionPanel/gestionPanel.tsx";
+import Layout from './modules/appointment-management/layout/layout.tsx';
+import GestionMultimediaPanel from './modules/appointment-management/components/gestionMultimediaPanel/gestionMultimediaPanel.tsx';
+import { RequestForm } from './modules/appointment-management/components/request/index.tsx';
 
 function App() {
   return (
+    <Layout 
+    header="a" 
+    body={
     <>
-      <Card 
-        themeColor="psychology" 
-        patientName="John Doe" 
-        speciality="Cardiology" 
-        date="2023-10-01" 
-      />
-      <Form/>
-      <GestionPanel/>
+    <GestionMultimediaPanel />
+    <RequestForm/>
     </>
+    }
+    >
+
+    </Layout>
   )
 }
 
