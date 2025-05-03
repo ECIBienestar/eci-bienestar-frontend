@@ -1,8 +1,7 @@
-// modules/appointment-management/hooks/useAvailability.ts
 import { useState } from "react";
 import { specialties } from "@appointment-management/data/specialties";
 
-export const useAvailability = () => {
+export const hookGestionShiftPanel = () => {
   const [availability, setAvailability] = useState(
     Object.fromEntries(specialties.map((s) => [s.key, true]))
   );

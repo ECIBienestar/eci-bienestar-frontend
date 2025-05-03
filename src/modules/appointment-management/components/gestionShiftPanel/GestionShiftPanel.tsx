@@ -8,7 +8,7 @@ import {
   Alert,
 } from "@heroui/react";
 import { specialties } from "@appointment-management/data/specialties";
-import { useAvailability } from "@appointment-management/hooks/useAvailability";
+import { hookGestionShiftPanel } from "../../hooks/hookgestionShiftPanel";
 import SpecialtyToggle from "./SpecialtyToggle";
 import ShiftsStatus from "./ShiftsStatus";
 
@@ -18,7 +18,7 @@ const GestionShiftPanel = () => {
     availabilityShifts,
     toggleSpecialty,
     toggleShiftAvailability,
-  } = useAvailability();
+  } = hookGestionShiftPanel();
 
   return (
     <Card className="p-5">
