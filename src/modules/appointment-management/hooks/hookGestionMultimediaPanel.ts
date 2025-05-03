@@ -5,16 +5,23 @@ const initialItems = [
   {
     id: 1,
     type: "imagen",
-    name: "Elemento 1",
+    name: "Servicio de bienestar universitario",
+    url: "https://example.com/1.jpg",
+    duration: 8,
+  },
+  {
+    id: 1,
+    type: "imagen",
+    name: "Programa de salud mental",
     url: "https://example.com/1.jpg",
     duration: 8,
   },
   {
     id: 2,
     type: "video",
-    name: "Elemento 2",
+    name: "Actvidades deportivas",
     url: "https://example.com/2.mp4",
-    duration: 10,
+    duration: 15,
   },
 ];
 
