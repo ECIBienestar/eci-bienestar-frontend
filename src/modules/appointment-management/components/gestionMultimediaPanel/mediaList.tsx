@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
-import InfoCardItem from "../InfoCardItem/InfoCardItem";
+import { InfoCardItem } from "@appointment-management/components/InfoCardItem";
 
 const MediaList = ({
   list,
@@ -21,6 +21,8 @@ const MediaList = ({
             id={item.id}
             title={item.name}
             subtitle={`${item.type} • ${item.duration}s`}
+            titleClassName="text-black"
+            subtitleClassName="text-zinc-500"
           >
             <button onClick={() => handleDelete(item.id)}>
               <FontAwesomeIcon

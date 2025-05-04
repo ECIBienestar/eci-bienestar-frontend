@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { specialties } from "@appointment-management/data/specialties";
 
-export const hookGestionShiftPanel = () => {
+const hookGestionShiftPanel = () => {
   const [availability, setAvailability] = useState(
     Object.fromEntries(specialties.map((s) => [s.key, true]))
   );
@@ -23,3 +23,5 @@ export const hookGestionShiftPanel = () => {
     toggleSpecialty,
   };
 };
+
+export default hookGestionShiftPanel;

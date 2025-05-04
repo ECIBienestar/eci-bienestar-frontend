@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFloppyDisk } from "@fortawesome/free-solid-svg-icons";
 import AddMediaForm from "./addMediaForm";
 import MediaList from "./mediaList";
-import hookGestionMultimediaPanel from "../../hooks/hookGestionMultimediaPanel";
+import { hookGestionMultimediaPanel } from "@appointment-management/hooks";
 
 const GestionMultimediaPanel = () => {
   const {
