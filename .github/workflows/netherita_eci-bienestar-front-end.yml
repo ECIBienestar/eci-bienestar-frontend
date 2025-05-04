@@ -13,7 +13,7 @@ jobs:
   build:
     runs-on: windows-latest
     permissions:
-      contents: read #This is required for actions/checkout
+      contents: read # Required for actions/checkout
 
     steps:
       - uses: actions/checkout@v4
@@ -28,7 +28,7 @@ jobs:
           npm install
           npm run build --if-present
           npm run test --if-present
-      
+
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
@@ -42,21 +42,21 @@ jobs:
       name: 'Staging'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     permissions:
-      id-token: write #This is required for requesting the JWT
-      contents: read #This is required for actions/checkout
+      id-token: write # Required for requesting the JWT
+      contents: read  # Required for actions/checkout
 
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
         with:
           name: node-app
-      
+
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_007DB4DF09004A4C9D72F7094D8322F1 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_60CFDA1876B24B19BD23BA1BE9E9A860 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_36F66FA952304E8CB312F6621DD79072 }}
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
@@ -64,4 +64,3 @@ jobs:
         with:
           app-name: 'eci-bienestar-front-end'
           package: .
-          
