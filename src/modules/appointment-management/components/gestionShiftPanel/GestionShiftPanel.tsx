@@ -8,7 +8,7 @@ import {
   Alert,
 } from "@heroui/react";
 import { specialties } from "@appointment-management/data/specialties";
-import { hookGestionShiftPanel } from "../../hooks/hookgestionShiftPanel";
+import { hookGestionShiftPanel } from "@appointment-management/hooks";
 import SpecialtyToggle from "./SpecialtyToggle";
 import ShiftsStatus from "./ShiftsStatus";
 
