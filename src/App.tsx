@@ -1,12 +1,6 @@
 import ShiftsUser from "./modules/appointment-management/components/shiftsUser/shiftsUser";
-
-// Tipo compartido para evitar duplicación
-type ShiftItem = {
-  id: number;
-  turn: string;
-  namePatient: string;
-  specialty: "Medicina general" | "Psicologia" | "Odontologia";
-};
+import type { Shift } from "@appointment-management/models/shift";
+import type { User } from "@appointment-management/models/User";
 
 const App = () => {
   const carroselItems: { type: "image" | "video"; title: string; duration: number; url: string }[] = [
@@ -30,36 +24,88 @@ const App = () => {
     },
   ];
 
-  const shitftItems: ShiftItem[] = [
+  const shiftItems: Shift[] = [
     {
-      id: 1,
-      turn: "M-43",
-      namePatient: "María González",
+      id: "1",
+      code: "M-43",
       specialty: "Medicina general",
+      priority: 1,
+      date: "2023-10-01",
+      status: "Pending",
+      levelAtention: "Normal",
+      UserId: "user-001",
     },
     {
-      id: 2,
-      turn: "P-17",
-      namePatient: "Carlos Pérez",
+      id: "2",
+      code: "P-17",
       specialty: "Psicologia",
+      priority: 2,
+      date: "2023-10-02",
+      status: "Completed",
+      levelAtention: "High",
+      UserId: "user-002",
     },
     {
-      id: 3,
-      turn: "O-12",
-      namePatient: "Lucía Fernández",
+      id: "3",
+      code: "O-12",
       specialty: "Odontologia",
+      priority: 3,
+      date: "2023-10-03",
+      status: "Pending",
+      levelAtention: "Low",
+      UserId: "user-003",
     },
     {
-      id: 4,
-      turn: "P-215",
-      namePatient: "Juan Ramírez",
+      id: "4",
+      code: "P-215",
       specialty: "Psicologia",
+      priority: 1,
+      date: "2023-10-04",
+      status: "In Progress",
+      levelAtention: "Medium",
+      UserId: "user-004",
     },
   ];
 
+  const users: User[] = [
+    {
+      id: "user-001",
+      name: "María González",
+      role: "Paciente",
+      shifts: [shiftItems[0]],
+    },
+    {
+      id: "user-002",
+      name: "Carlos Pérez",
+      role: "Paciente",
+      shifts: [shiftItems[1]],
+    },
+    {
+      id: "user-003",
+      name: "Lucía Fernández",
+      role: "Paciente",
+      shifts: [shiftItems[2]],
+    },
+    {
+      id: "user-004",
+      name: "Juan Ramírez",
+      role: "Paciente",
+      shifts: [shiftItems[3]],
+    },
+  ];
+
+  const enrichedShiftItems = shiftItems.map((shift) => {
+    const user = users.find((u) => u.id === shift.UserId);
+    return {
+      ...shift,
+      turn: shift.code,
+      namePatient: user?.name || "Paciente desconocido",
+    };
+  });
+
   return (
     <div className="p-4 h-screen w-screen bg-gray-100">
-      <ShiftsUser carroselItems={carroselItems} shitftItems={shitftItems} />
+      <ShiftsUser carroselItems={carroselItems} shiftItems={enrichedShiftItems} />
     </div>
   );
 };

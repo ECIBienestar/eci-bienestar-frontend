@@ -2,42 +2,18 @@ import InstitutionalInfo from "./institutionalInfo";
 import ShiftActual from "./shiftActual";
 import ShiftsList from "./shiftsList";
 import { InfoCardItem } from "@appointment-management/components/InfoCardItem";
+import type { CarroselProps } from "@appointment-management/types/carroselType";
+import type { User } from "@appointment-management/models/User";
+import type { Shift } from "@appointment-management/models/shift";
+import { getTitleClassName } from "@appointment-management/utils/specialityColors";
 
-type shiftItem = {
-  id: number;
-  turn: string;
-  namePatient: string;
-  specialty: "Medicina general" | "Psicologia" | "Odontologia";
+type Props = {
+  shiftItems: (Shift & { namePatient: User["name"]; turn: string })[];
+  carroselItems: CarroselProps["items"];
 };
 
-type CarroselItem = {
-  type: "image" | "video";
-  title: string;
-  duration: number;
-  url: string;
-};
-
-type shiftActualProps = {
-  shitftItems: shiftItem[];
-  carroselItems: CarroselItem[];
-};
-
-const getTitleClassName = (specialty: shiftItem["specialty"]) => {
-  const baseClasses = "font-semibold text-lg";
-  switch (specialty) {
-    case "Medicina general":
-      return `${baseClasses} text-health-medicine-primary`;
-    case "Psicologia":
-      return `${baseClasses} text-health-psychology-primary`;
-    case "Odontologia":
-      return `${baseClasses} text-health-primary`;
-    default:
-      return baseClasses;
-  }
-};
-
-const ShiftsUser = ({ shitftItems, carroselItems }: shiftActualProps) => {
-  const [firstShift, ...otherShifts] = shitftItems;
+const ShiftsUser = ({ shiftItems, carroselItems }: Props) => {
+  const [firstShift, ...otherShifts] = shiftItems;
 
   return (
     <div className="px-6 py-4">
@@ -73,7 +49,7 @@ const ShiftsUser = ({ shitftItems, carroselItems }: shiftActualProps) => {
             )}
           </ShiftActual>
 
-          <InstitutionalInfo carroselItems={carroselItems} />
+          <InstitutionalInfo items={carroselItems} />
         </div>
       </div>
     </div>

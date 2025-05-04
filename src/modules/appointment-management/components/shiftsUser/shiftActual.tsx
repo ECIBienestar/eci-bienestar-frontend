@@ -1,10 +1,10 @@
 import { Card, CardHeader, CardBody } from "@heroui/react";
 
-type ShiftsListProps = {
+type Props = {
   children?: React.ReactNode;
 };
 
-const shiftActual = ({ children }: ShiftsListProps) => {
+const ShiftActual  = ({ children }: Props) => {
   return (
     <Card>
       <CardHeader
@@ -22,4 +22,4 @@ const shiftActual = ({ children }: ShiftsListProps) => {
   );
 };
 
-export default shiftActual;
+export default ShiftActual ;

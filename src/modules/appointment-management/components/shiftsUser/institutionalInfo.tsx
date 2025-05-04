@@ -1,22 +1,12 @@
 import { useDisclosure } from "@heroui/react";
 import { Card, CardHeader, CardBody, Modal, ModalContent } from "@heroui/react";
-import Carrosel from "./carrosel"; 
-import { GestionMultimediaPanel } from "../gestionMultimediaPanel"; 
+import Carrosel from "./carrosel/carrosel";
+import { GestionMultimediaPanel } from "../gestionMultimediaPanel";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
+import { CarroselProps } from "../../types/carroselType";
 
-type CarroselItem = {
-  type: "image" | "video";
-  title: string;
-  duration: number;
-  url: string;
-};
-
-type InstitutionalInfoProps = {
-  carroselItems: CarroselItem[];
-};
-
-const InstitutionalInfo = ({ carroselItems }: InstitutionalInfoProps) => {
+const InstitutionalInfo = ({ items }: CarroselProps) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   return (
@@ -39,7 +29,7 @@ const InstitutionalInfo = ({ carroselItems }: InstitutionalInfoProps) => {
         </CardHeader>
 
         <CardBody className="py-0 px-0 flex-col items-start h-[600px]">
-          <Carrosel items={carroselItems} />
+          <Carrosel items={items} />
         </CardBody>
       </Card>
 
@@ -51,9 +41,7 @@ const InstitutionalInfo = ({ carroselItems }: InstitutionalInfoProps) => {
         scrollBehavior="inside"
         className="max-h-[90vh] overflow-y-auto"
       >
-        <ModalContent>
-          {() => <GestionMultimediaPanel />}
-        </ModalContent>
+        <ModalContent>{() => <GestionMultimediaPanel />}</ModalContent>
       </Modal>
     </>
   );

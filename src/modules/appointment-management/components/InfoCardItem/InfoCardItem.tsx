@@ -1,21 +1,23 @@
 import { Card } from "@heroui/react";
 
-type InfoCardItemProps = {
+type Props = {
   id: string | number;
   title: string;
   subtitle: string;
+  elementHeader?: React.ReactNode;
   children?: React.ReactNode;
-  titleClassName?: string;  
-  subtitleClassName?: string; 
+  titleClassName?: string;
+  subtitleClassName?: string;
 };
 
 const InfoCardItem = ({
   title,
   subtitle,
+  elementHeader,
   children,
   titleClassName,
   subtitleClassName,
-}: InfoCardItemProps) => {
+}: Props) => {
   return (
     <Card className="p-4 my-2">
       <div className="flex justify-between items-center w-full">
@@ -23,9 +25,8 @@ const InfoCardItem = ({
           <p className={`text-base font-medium ${titleClassName ?? ""}`}>
             {title}
           </p>
-          <p className={`text-sm ${subtitleClassName ?? ""}`}>
-            {subtitle}
-          </p>
+          <p className={`text-sm ${subtitleClassName ?? ""}`}>{subtitle}</p>
+          {elementHeader}
         </div>
         {children && <div>{children}</div>}
       </div>
