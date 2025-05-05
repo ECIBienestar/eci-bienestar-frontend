@@ -20,20 +20,23 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ header, body }) => {
   return (
     <div className="w-full flex flex-col bg-white text-gray-900 dark:bg-gray-950 dark:text-white">
-      <Navbar isBordered maxWidth="full" position="static">
-        <NavbarBrand className="font-bold text-xl tracking-tight">
+      <Navbar 
+      isBordered maxWidth="full" 
+      position="static"
+      style={{ backgroundColor: "#0078B4" }}>
+        <NavbarBrand className="font-bold text-xl tracking-tight text-white dark:text-white">
           ECI Bienestar
         </NavbarBrand>
 
         <NavbarContent as="div" justify="end" className="gap-6">
           <NavbarItem className="cursor-pointer hover:text-blue-600 transition-colors">
-            <FontAwesomeIcon icon={faBell} size="lg" />
+            <FontAwesomeIcon icon={faBell} size="lg" color="white"/>
           </NavbarItem>
 
           <Dropdown placement="bottom-end">
             <DropdownTrigger>
               <button className="hover:text-blue-600 transition-colors">
-                <FontAwesomeIcon icon={faUser} size="lg" />
+                <FontAwesomeIcon icon={faUser} size="lg" color="white"/>
               </button>
             </DropdownTrigger>
             <DropdownMenu aria-label="Profile Actions" variant="flat">
@@ -45,7 +48,7 @@ const Layout: React.FC<LayoutProps> = ({ header, body }) => {
           </Dropdown>
           
           <NavbarItem className="cursor-pointer hover:text-red-500 transition-colors">
-            <FontAwesomeIcon icon={faRightFromBracket} size="lg" />
+            <FontAwesomeIcon icon={faRightFromBracket} size="lg" color="white"/>
           </NavbarItem>
         </NavbarContent>
       </Navbar>
