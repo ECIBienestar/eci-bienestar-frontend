@@ -1,7 +1,7 @@
 # 🏢 ECI-Bienestar Frontend
 
 <div align="center">
-  <img src="src/assets/images/ecibienestar_logo.png" alt="ECI-Bienestar Logo" width="350" height="200">
+  <img src="src/assets/images/ecibienestar_logo_white_background.png" alt="ECI-Bienestar Logo" width="350" height="200">
   <br>
   <h3>Comprehensive Wellness Services Platform for Escuela Colombiana de Ingeniería Julio Garavito</h3>
 </div>
