@@ -1,7 +1,7 @@
 # 🏢 ECI-Bienestar Frontend
 
 <div align="center">
-  <img src="src/assets/images/logo.png" alt="ECI-Bienestar Logo" width="350" height="200">
+  <img src="src/assets/images/ecibienestar_logo.png" alt="ECI-Bienestar Logo" width="350" height="200">
   <br>
   <h3>Comprehensive Wellness Services Platform for Escuela Colombiana de Ingeniería Julio Garavito</h3>
 </div>
@@ -61,30 +61,30 @@ This repository contains the frontend implementation of the ECI-Bienestar platfo
 ```
 eci-bienestar-frontend/
 ├── src/
-│   ├── assets/                  # Static assets (images, icons, etc.)
-│   ├── components/              # Shared components
-│   │   ├── common/              # Common UI components (buttons, cards, etc.)
-│   │   └── layout/              # Layout components (header, footer, etc.)
-│   ├── modules/                 # Feature modules
-│   │   ├── core/                # Core functionality (auth, shared services)
-│   │   ├── medical-shifts/      # Medical shifts module (Diamante Team)
-│   │   ├── recreational-rooms/  # Recreational rooms module (Circonio Team)
-│   │   ├── extracurricular-attendance/ # Extracurricular classes (Ópalo Team)
-│   │   ├── sports-equipment/    # Sports equipment loans (Esmeralda Team)
-│   │   ├── gym-management/      # Gym tracking and management (Netherita Team)
-│   │   ├── user-administration/ # User administration (Bismuto Team)
-│   │   └── statistics-reporting/ # Statistics and reporting (Bismuto Team)
-│   ├── router/                  # Application routing
-│   ├── store/                   # Global state management
-│   ├── types/                   # TypeScript type definitions
-│   ├── utils/                   # Utility functions
-│   ├── App.tsx                  # Main App component
-│   └── main.tsx                 # Application entry point
-├── public/                      # Public assets
-├── index.html                   # HTML entry point
-├── vite.config.ts               # Vite configuration
-├── tailwind.config.js           # Tailwind CSS configuration
-└── package.json                 # Project dependencies and scripts
+│   ├── assets/                           # Static assets (images, icons, etc.)
+│   ├── components/                       # Shared components
+│   │   ├── common/                       # Common UI components (buttons, cards, etc.)
+│   │   └── layout/                       # Layout components (header, footer, etc.)
+│   ├── modules/                          # Feature modules
+│   │   ├── core/                         # Core functionality (auth, shared services)
+│   │   ├── appointment-management/       # Appointment management module (Diamante Team)
+│   │   ├── recreational-rooms/           # Recreational rooms module (Circonio Team)
+│   │   ├── extracurricular-classes/      # Extracurricular classes (Ópalo Team)
+│   │   ├── sports-equipment/             # Sports equipment loans (Esmeralda Team)
+│   │   ├── gym-management/               # Gym tracking and management (Netherita Team)
+│   │   ├── user-administration/          # User administration (Bismuto Team)
+│   │   └── statistics-reporting/         # Statistics and reporting (Bismuto Team)
+│   ├── router/                           # Application routing
+│   ├── store/                            # Global state management
+│   ├── types/                            # TypeScript type definitions
+│   ├── utils/                            # Utility functions
+│   ├── App.tsx                           # Main App component
+│   └── main.tsx                          # Application entry point
+├── public/                               # Public assets
+├── index.html                            # HTML entry point
+├── vite.config.ts                        # Vite configuration
+├── tailwind.config.js                    # Tailwind CSS configuration
+└── package.json                          # Project dependencies and scripts
 ```
 
 ## 🚀 Getting Started
@@ -422,7 +422,7 @@ The application follows a component-based architecture, with a focus on reusabil
 ### High-Level Architecture
 
 <div align="center">
-  <img src="src/assets/images/component_architecture.png" alt="Component Architecture" width="700" height="500">
+  <img src="src/assets/images/general_architecture_diagram.png" alt="Component Architecture" width="700" height="500">
 </div>
 
 ### Key Architectural Patterns:
@@ -594,8 +594,9 @@ jobs:
 
 ### Deployment URLs:
 
-- **Development**: [https://eci-bienestar-dev.azurewebsites.net](https://eci-bienestar-dev.azurewebsites.net)
 - **Production**: [https://eci-bienestar.azurewebsites.net](https://eci-bienestar.azurewebsites.net)
+- **Development**: [https://eci-bienestar-dev.azurewebsites.net](http://eci-bienestar-front-end-c0bbf3hzadekcpdg.canadacentral-01.azurewebsites.net)
+
 
 ## 🔌 External Services
 
@@ -660,12 +661,40 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## 👥 Team
 
-- **Diamante Team**: Medical Shifts Module
-- **Circonio Team**: Recreational Rooms Module
-- **Ópalo Team**: Extracurricular Attendance Module
-- **Esmeralda Team**: Sports Equipment Module
-- **Netherita Team**: Gym Management Module
-- **Bismuto Team**: User Administration & Statistics Modules
+### Diamante Team (Appointment Management)
+- [Carlos David Barrero Velasquez](https://github.com/CARDAV-45)
+- [Vicente Garzón Rios](https://github.com/ChenteChaurio)
+- [Daniel Alejandro Diaz Camelo](https://github.com/dadc1007)
+- [Geronimo Martinez Nuñez](https://github.com/MimiRandomS)
+
+### Circonio Team (Recreational Rooms)
+- [Jeimy Alejandra Yaya Martínez](https://github.com/JeimyYaya)
+- [Nicole Dayan Calderón Arévalo](https://github.com/NicoleC09)
+- [Alison Geraldine Valderrama Munar](https://github.com/LIZVALMU)
+- [Sebastián Julián Villarraga Guerrero](https://github.com/Sebastian-villarraga)
+
+### Ópalo Team (Extracurricular Classes)
+- [David Santiago Espinosa Rojas](https://github.com/daviespr1406)
+- [Emily Noreña Cardozo](https://github.com/EmilyNorena)
+- [Mayerlly Suarez Correa](https://github.com/mayerllyyo)
+
+### Esmeralda Team (Sports Equipment)
+- [Roger Rodriguez](https://github.com/Rogerrdz)
+- [Julian Cardenas](https://github.com/Yuliencc2512)
+- [Jose Castillo](https://github.com/JoseDavidCastillo)
+- [Sebastian Galvis](https://github.com/sebRedi)
+
+### Netherita Team (Gym Management)
+- [Jesús Alberto Jauregui Conde](https://github.com/JesusJC15)
+- [Natalia Espitia Espinel](https://github.com/Natalia-Espitia)
+- [Santiago Hurtado Martínez](https://github.com/SantiagoHM20)
+- [Andres Felipe Calderon Ramirez](https://github.com/andrescalderonr)
+
+### Bismuto Team (User Administration & Statistics)
+- [Andrés Felipe Chavarro Plazas](https://github.com/And3xDev)
+- [Andrés Jacobo Sepúlveda Sánchez](https://github.com/Jaco0bo)
+- [Camilo Andrés Fernández Díaz](https://github.com/CamiloFdez)
+- [Jesús Alfonso Pinzón Vega](https://github.com/JAPV-X2612)
 
 ---
 
