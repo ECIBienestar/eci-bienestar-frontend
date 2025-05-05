@@ -13,7 +13,11 @@ import {
 import { useState } from "react";
 import { specialties } from "@appointment-management/data/specialties";
 
-const Form = () => {
+interface FormProps {
+  onSubmitAction?: () => void;
+}
+
+const Form: React.FC<FormProps> = ({ onSubmitAction }) => {
   const [isInvalidRole, setIsInvalidRole] = useState(false);
 
   return (
@@ -31,6 +35,7 @@ const Form = () => {
           className="flexx flex-col gap-8"
           onSubmit={(e) => {
             e.preventDefault();
+            if (onSubmitAction) onSubmitAction(); // Ejecuta la acción proporcionada por el prop
           }}
         >
           <Input
@@ -68,7 +73,6 @@ const Form = () => {
             description="Selecciona un rol"
             isInvalid={isInvalidRole}
             label="Rol en la institucion"
-            // orientation="horizontal"
             onValueChange={(value) => {
               setIsInvalidRole(value.length !== 1);
             }}
@@ -95,7 +99,6 @@ const Form = () => {
           <CheckboxGroup
             description="Seleccione si aplica alguna condicion especial"
             label="Prioridad especial"
-            // orientation="horizontal"
             radius="none"
             classNames={{
               wrapper: "flex flex-row gap-8 max-sm:!flex-col max-sm:!gap-4",
@@ -104,7 +107,10 @@ const Form = () => {
             <Checkbox value="student">Discapacidad</Checkbox>
             <Checkbox value="teacher">Embarazo</Checkbox>
           </CheckboxGroup>
-          <Button className="bg-health-primary text-white w-full" type="submit">
+          <Button
+            className="bg-health-primary text-white w-full"
+            type="submit"
+          >
             Solicitar turno
           </Button>
         </FormHero>

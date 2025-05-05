@@ -1,112 +1,18 @@
-import ShiftsUser from "./modules/appointment-management/components/shiftsUser/shiftsUser";
-import type { Shift } from "@appointment-management/models/shift";
-import type { User } from "@appointment-management/models/User";
+import { useState } from "react";
+import ShiftsPrincipal from "./modules/appointment-management/features/ShiftsPrincipal/ShiftsPrincipal";
+import GestionShifts from "./modules/appointment-management/features/gestionShifts/gestionShifts";
+import FormShift from "./modules/appointment-management/features/formshift/formshift";
+
 
 const App = () => {
-  const carroselItems: { type: "image" | "video"; title: string; duration: number; url: string }[] = [
-    {
-      type: "image",
-      title: "Programa de bienestar",
-      duration: 4,
-      url: "https://cdn.pixabay.com/photo/2020/10/02/09/01/tablets-5620566_1280.jpg",
-    },
-    {
-      type: "image",
-      title: "Programa de salud mental",
-      duration: 3,
-      url: "https://cdn.pixabay.com/photo/2017/10/07/14/55/depression-2826711_1280.jpg",
-    },
-    {
-      type: "image",
-      title: "Programa de odontología",
-      duration: 4,
-      url: "https://cdn.pixabay.com/photo/2015/03/11/05/03/dentistry-668191_1280.jpg",
-    },
-  ];
-
-  const shiftItems: Shift[] = [
-    {
-      id: "1",
-      code: "M-43",
-      specialty: "Medicina general",
-      priority: 1,
-      date: "2023-10-01",
-      status: "Pending",
-      levelAtention: "Normal",
-      UserId: "user-001",
-    },
-    {
-      id: "2",
-      code: "P-17",
-      specialty: "Psicologia",
-      priority: 2,
-      date: "2023-10-02",
-      status: "Completed",
-      levelAtention: "High",
-      UserId: "user-002",
-    },
-    {
-      id: "3",
-      code: "O-12",
-      specialty: "Odontologia",
-      priority: 3,
-      date: "2023-10-03",
-      status: "Pending",
-      levelAtention: "Low",
-      UserId: "user-003",
-    },
-    {
-      id: "4",
-      code: "P-215",
-      specialty: "Psicologia",
-      priority: 1,
-      date: "2023-10-04",
-      status: "In Progress",
-      levelAtention: "Medium",
-      UserId: "user-004",
-    },
-  ];
-
-  const users: User[] = [
-    {
-      id: "user-001",
-      name: "María González",
-      role: "Paciente",
-      shifts: [shiftItems[0]],
-    },
-    {
-      id: "user-002",
-      name: "Carlos Pérez",
-      role: "Paciente",
-      shifts: [shiftItems[1]],
-    },
-    {
-      id: "user-003",
-      name: "Lucía Fernández",
-      role: "Paciente",
-      shifts: [shiftItems[2]],
-    },
-    {
-      id: "user-004",
-      name: "Juan Ramírez",
-      role: "Paciente",
-      shifts: [shiftItems[3]],
-    },
-  ];
-
-  const enrichedShiftItems = shiftItems.map((shift) => {
-    const user = users.find((u) => u.id === shift.UserId);
-    return {
-      ...shift,
-      turn: shift.code,
-      namePatient: user?.name || "Paciente desconocido",
-    };
-  });
+  const [vista, setVista] = useState<"principal" | "gestion" | "formShift">("principal");
 
   return (
-    <div className="p-4 h-screen w-screen bg-gray-100">
-      <ShiftsUser carroselItems={carroselItems} shiftItems={enrichedShiftItems} />
-    </div>
+    <>
+      {vista === "principal" && <ShiftsPrincipal irAGestion={() => setVista("gestion")} irAFormShift={() => setVista("formShift")} />}
+      {vista === "gestion" && <GestionShifts volver={() => setVista("principal")} />}
+      {vista === "formShift" && <FormShift volver={() => setVista("principal")} />}
+    </>
   );
 };
 
