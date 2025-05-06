@@ -289,11 +289,17 @@ This module provides comprehensive user management capabilities for the platform
 - Connects to `user-admin-service` for user management
 - Uses `authentication-service` for access control
 
-#### Demo:
+#### Designs:
 <div align="center">
-  <a href="https://youtube.com/demo-link">
-    <img src="src/assets/images/user_admin_demo.png" alt="User Administration Demo" width="350" height="200">
-  </a>
+  <img src="src/assets/images/bismuto_login_1.png" alt="ECI-Bienestar Logo" width="500" height="300">
+  <img src="src/assets/images/bismuto_login_2.png" alt="ECI-Bienestar Logo" width="500" height="300">
+  <img src="src/assets/images/bismuto_login_3.png" alt="ECI-Bienestar Logo" width="500" height="300">
+
+  <img src="src/assets/images/bismuto_dashboard.png" alt="ECI-Bienestar Logo" width="500" height="400">
+
+  <img src="src/assets/images/bismuto_admin_users_1.png" alt="ECI-Bienestar Logo" width="500" height="400">
+  <img src="src/assets/images/bismuto_admin_users_2.png" alt="ECI-Bienestar Logo" width="500" height="400">
+  <img src="src/assets/images/bismuto_admin_users_3.png" alt="ECI-Bienestar Logo" width="500" height="400">
 </div>
 
 ### 📊 Statistics Reporting Module (Bismuto Team)
@@ -317,11 +323,10 @@ This module provides data visualization and reporting capabilities for the platf
 - Connects to `statistics-service` for data aggregation
 - Uses data from all platform services for comprehensive reporting
 
-#### Demo:
+#### Designs::
 <div align="center">
-  <a href="https://youtube.com/demo-link">
-    <img src="src/assets/images/statistics_demo.png" alt="Statistics Reporting Demo" width="350" height="200">
-  </a>
+  <img src="src/assets/images/bismuto_statistics_1.png" alt="ECI-Bienestar Logo" width="500" height="400">
+  <img src="src/assets/images/bismuto_statistics_2.png" alt="ECI-Bienestar Logo" width="500" height="400">
 </div>
 
 ## 🧭 Navigation
@@ -422,7 +427,7 @@ The application follows a component-based architecture, with a focus on reusabil
 ### High-Level Architecture
 
 <div align="center">
-  <img src="src/assets/images/general_architecture_diagram.png" alt="Component Architecture" width="700" height="500">
+  <img src="src/assets/images/general_architecture_diagram.png" alt="Component Architecture" width="650" height="450">
 </div>
 
 ### Key Architectural Patterns:
