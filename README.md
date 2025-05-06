@@ -422,7 +422,7 @@ The application follows a component-based architecture, with a focus on reusabil
 ### High-Level Architecture
 
 <div align="center">
-  <img src="src/assets/images/general_architecture_diagram.png" alt="Component Architecture" width="700" height="500">
+  <img src="src/assets/images/general_architecture_diagram.png" alt="Component Architecture" width="650" height="450">
 </div>
 
 ### Key Architectural Patterns:
